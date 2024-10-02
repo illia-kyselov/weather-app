@@ -11,7 +11,7 @@ export const fetchWeatherData = async (
 
     try {
         const response = await axios.get(
-            `${import.meta.env.VITE_BACKEND_URL}/weather/${city}`
+            `http://localhost:3000/weather/${city}`
         );
 
         if (response.data) {
