@@ -1,14 +1,18 @@
 {
     "builds": [
         {
-            "src": "package.json",
+            "src": "backend/package.json",
             "use": "@vercel/node"
         }
     ],
     "routes": [
         {
-            "src": "/api/(.*)",
-            "dest": "/$1"
+            "src": "/weather/(.*)",
+            "dest": "/backend/weather/$1"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "/backend/$1"
         }
     ]
 }
