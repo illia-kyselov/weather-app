@@ -17,8 +17,8 @@ const ListPage: React.FC = () => {
     useEffect(() => {
         const fetchWeatherHistory = async () => {
             try {
-                const response = await axios.get(
-                    `${import.meta.env.VITE_BACKEND_URL}/weather/`
+                const response = await axios.get<WeatherData[]>(
+                    'http://localhost:3000/weather'
                 );
                 setWeatherHistory(response.data);
             } catch (error) {
@@ -44,7 +44,7 @@ const ListPage: React.FC = () => {
                 </h3>
             </div>
             <div className="flex flex-wrap gap-3 sm:gap-4">
-                {Array.isArray(weatherHistory) && weatherHistory.map((weather, index) => (
+                {weatherHistory.slice(0, 100).map((weather, index) => (
                     <ListCard
                         key={index}
                         city={weather.city}
