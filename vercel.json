@@ -16,10 +16,7 @@
         {
             "src": "/api/(.*)",
             "dest": "/backend/$1"
-        },
-        {
-            "src": "/(.*)",
-            "dest": "/frontend/$1"
         }
-    ]
+    ],
+    "rewrites": [{ "source": "/(.*)", "destination": "/frontend/$1" }]
 }
