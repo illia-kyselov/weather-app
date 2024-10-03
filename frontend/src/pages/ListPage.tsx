@@ -18,7 +18,7 @@ const ListPage: React.FC = () => {
         const fetchWeatherHistory = async () => {
             try {
                 const response = await axios.get<WeatherData[]>(
-                    'http://localhost:3000/weather'
+                    `${import.meta.env.VITE_BACKEND_URL}/weather`
                 );
                 setWeatherHistory(response.data);
             } catch (error) {
