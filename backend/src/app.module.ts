@@ -7,13 +7,15 @@ import { WeatherModule } from './schemas/weather.module';
     imports: [
         ConfigModule.forRoot({
             isGlobal: true,
+            envFilePath: '.env',
         }),
         MongooseModule.forRootAsync({
             imports: [ConfigModule],
             inject: [ConfigService],
-            useFactory: (configService: ConfigService) => ({
-                uri: configService.get<string>('MONGODB_URI'),
-            }),
+            useFactory: async (configService: ConfigService) => {
+                const uri = configService.get<string>('MONGODB_URI');
+                return { uri };
+            },
         }),
         WeatherModule,
     ],

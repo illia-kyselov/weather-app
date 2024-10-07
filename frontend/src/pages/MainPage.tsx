@@ -15,8 +15,8 @@ const MainPage = () => {
             const data = await fetchWeatherData(city);
             setWeatherData(data);
         } catch (error) {
-            console.error('Помилка при отриманні даних: ', error);
-            alert('Не вдалося отримати дані. Спробуйте ще раз.');
+            console.error('Error fetching data: ', error);
+            alert('Failed to retrieve data. Please try again.');
         } finally {
             setIsLoading(false);
         }

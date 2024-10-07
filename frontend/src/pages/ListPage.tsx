@@ -18,14 +18,13 @@ const ListPage: React.FC = () => {
         const fetchWeatherHistory = async () => {
             try {
                 const response = await axios.get<WeatherData[]>(
-                    'http://localhost:3000/api/weather'
+                    'http://localhost:3000/weather'
                 );
                 setWeatherHistory(response.data);
             } catch (error) {
                 console.error('Error fetching weather history:', error);
             }
         };
-
         fetchWeatherHistory();
     }, []);
 
