@@ -6,7 +6,7 @@ export const fetchWeatherData = async (
 ): Promise<WeatherData | null> => {
     try {
         const response = await axios.get(
-            `https://weather-app-backend-taupe.vercel.app/weather/${city}`
+            `http://localhost:3000/weather/${city}`
         );
 
         if (response.data) {
