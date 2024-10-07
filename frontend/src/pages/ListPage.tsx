@@ -18,7 +18,7 @@ const ListPage: React.FC = () => {
         const fetchWeatherHistory = async () => {
             try {
                 const response = await axios.get<WeatherData[]>(
-                    'http://localhost:3000/weather'
+                    'https://weather-app-backend-taupe.vercel.app/weather'
                 );
                 setWeatherHistory(response.data);
             } catch (error) {
